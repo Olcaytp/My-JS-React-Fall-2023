@@ -1,0 +1,45 @@
+- Can you provide an example to illustrate how to use `if-else` and how to use a `switch` statement?
+    
+Let's consider an example where we need to determine the type of a day based on its number:
+
+// Example Using "if-else" statement
+
+let day = 3
+let dayType
+
+if (day === 1 || day === 7) {
+  dayType = "Weekend"
+} else if (day >= 2 && day <= 6) {
+  dayType = "Weekday"
+} else {
+  dayType = "Invalid day"
+}
+
+console.log("The day is a " + dayType + ".")
+
+// Example Using "switch" statement
+
+let day = 3
+let dayType
+
+switch (day) {
+  case 1:
+  case 7:
+    dayType = "Weekend"
+    break
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+  case 6:
+    dayType = "Weekday"
+    break
+  default:
+    dayType = "Invalid day"
+    break
+}
+
+console.log("The day is a " + dayType + ".")
+
+In this example, both approaches achieve the same result. The "if-else" statement offers more flexibility, 
+whereas the "switch" statement provides a more concise way to handle multiple cases.

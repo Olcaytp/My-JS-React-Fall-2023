@@ -1,0 +1,103 @@
+## Data Types
+
+We can use variables to store different types of data. There are more than 6 data types, divided into two main groups; primitive and non-primitive data types. 
+
+### **Primitive Data Types**
+
+In JavaScript, a primitive data type is a basic data type that represents a single value and is not an object. Primitive data types are immutable, meaning their values cannot be changed after they are created.  Here are some examples of JavaScript data types:
+
+- String: A sequence of characters, enclosed in single or double quotes. Example: `"Hello World"`.
+- Number: A numeric value, which can be an integer or a floating-point number. Example: `42`.
+- Boolean: A logical value, which can be either `true` or `false`.
+- Undefined: A special value that represents the absence of a value. A variable that has not been assigned a value is `undefined`.
+- Null: A special value that represents the absence of any object value.
+
+### Non-primitive **Data Types**
+
+Non-primitive data types in JavaScript are also known as reference data types. Unlike primitive data types, they can hold multiple values and are more complex in nature. Non-primitive data types are mutable, meaning their values can be changed after they are created. In JavaScript, objects, arrays and functions are common examples of non-primitive data types:
+
+- Object: A collection of key-value pairs, where the value can be of any data type, including another object. Example: `{ name: "John", age: 30 }`.
+- Array: An ordered collection of values of any data type, accessed by an index. Example: `[ "apple", "banana", "orange" ]`.
+- Function: A reusable block of code that performs a specific task. Functions can be passed as arguments to other functions and can also return other functions.
+
+## **Variable Declaration**
+
+In JavaScript, variables are declared using the `var`, `let`, or `const` keyword. 
+
+Variables can be defined using the [reserved keywords](https://www.w3schools.com/js/js_reserved.asp) var, let, const.
+
+They have some similarities but also some key differences:
+
+`var` The keyword "var" is an older way of declaring variables in JavaScript. It has function scope, which means a variable declared with var can be accessed within the function it's declared in, regardless of where it is located within the code. However, "var" is not commonly used anymore because it can cause confusion and unexpected behaviour.
+
+`let` The keyword "let" is used to declare variables in newer versions of JavaScript. It provides block scope, which means a variable declared with let can only be accessed within the specific block of code (within curly braces) where it is defined. This gives us better control over our variables and avoids issues that can arise from a mechanism called hoisting.
+
+`const` The keyword "const" is also used in newer versions of JavaScript. It stands for "constant" and is used to declare variables that cannot be changed once they are assigned a value. Like "let", it also provides block scope. We use "const" when we have a data type that should stay the same throughout our program, ensuring its immutability.
+
+## Declaring Variables
+
+```
+// Declaring variables using the var keyword
+var name = "John"
+var age = 30
+
+// Declaring variables using the let keyword
+let address = "123 Main St"
+let phone = "555-555-5555"
+
+// Declaring variables using the const keyword
+const PI = 3.14
+const MAX_SIZE = 100
+
+```
+
+## **Type Conversion**
+
+JavaScript is a loosely-typed language, which means that variables can change their data type dynamically. There are two ways to convert a value to a different data type in JavaScript: implicit conversion and explicit conversion.
+
+### Implicit Conversion
+
+Implicit conversion happens automatically when a value of one data type is used in a context that expects a different data type. For example:
+
+```
+var x = 10;
+var y = "5";
+var z = x + y; // z is "105" (a string)
+
+```
+
+In this example, the `+` operator performs implicit conversion of the `x` variable to a string, and concatenates it with the `y` variable.
+
+## Declaring Variables
+
+```
+// Declaring variables using the var keyword
+var name = "John"
+var age = 30
+
+// Declaring variables using the let keyword
+let address = "123 Main St"
+let phone = "555-555-5555"
+
+// Declaring variables using the const keyword
+const PI = 3.14
+const MAX_SIZE = 100
+
+```
+
+## **Type Conversion**
+
+JavaScript is a loosely-typed language, which means that variables can change their data type dynamically. There are two ways to convert a value to a different data type in JavaScript: implicit conversion and explicit conversion.
+
+### Implicit Conversion
+
+Implicit conversion happens automatically when a value of one data type is used in a context that expects a different data type. For example:
+
+```
+var x = 10;
+var y = "5";
+var z = x + y; // z is "105" (a string)
+
+```
+
+In this example, the `+` operator performs implicit conversion of the `x` variable to a string, and concatenates it with the `y` variable.
