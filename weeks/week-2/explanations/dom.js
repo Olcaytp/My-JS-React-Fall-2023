@@ -49,9 +49,12 @@ getElementById, querySelector, querySelectorAll, getElementsByTagName and getEle
 console.log("Selecting Elements");
 // getElementById
 const byId = document.getElementById("dom-manipulation");
+console.log("byId: ");
+console.log(byId);
 
 // getElementByClassName
 const byClass = document.getElementsByClassName("highlight");
+console.log("byClass: ");
 console.log(byClass);
 
 // querySelector
@@ -64,7 +67,7 @@ console.log(querySelectorAll);
 
 //getElementByTagName
 const byTagName = document.getElementsByTagName("h5");
-console.log(byTagName[2].innerHTML);
+console.log(byTagName[2].innerText);
 
 // getElementsByClassName
 const elementsByClassName = document.getElementsByClassName("box");
@@ -92,13 +95,27 @@ console.log(nextSibling);
 
 const newDiv = document.createElement("div");
 parentElement.appendChild(newDiv);
+newDiv.innerText = "This is a dynamically added divs InnerText";
+console.log("line 99 => newDiv: ");
+console.log(newDiv);
+
+const newDiv2 = document.createElement("div");
+parentElement.appendChild(newDiv2);
+newDiv2.innerText = "This is a dynamically added divs InnerText";
+console.log("line 99 => newDiv: ");
+console.log(newDiv2);
 
 
 // add new item to a list
 const newLi = document.createElement("li");
 const ulElement = document.getElementById("list");
-newLi.innerText = "Item 5"
+newLi.innerText = "Item 5";
 ulElement.appendChild(newLi);
+
+const newLi2 = document.createElement("li");
+const ulElement2 = document.getElementById("list");
+newLi2.innerText = "Item 6";
+ulElement2.appendChild(newLi2);
 
 // -----
 // -----
@@ -119,6 +136,7 @@ newDiv.innerText = "Updated content";
 // Inserting Elements
 // You can insert elements before or after other elements using methods like insertBefore and insertAdjacentElement.
 // insertBefore()
+console.log("--------------------Inserting Elements");
 
 let newElement = document.createElement("p");
 newElement.innerText = "This is a dynamically added paragraph";
@@ -149,7 +167,7 @@ referenceElement.insertAdjacentElement("afterend", newElementAdjecent);
 // Removing Elements:
 // To remove an element, use the remove method.
 const toBeRemoved = document.querySelector(".removed-element");
-toBeRemoved.remove();
+//toBeRemoved.remove();
 
 // Comment the line above to see how the element appears back on the DOM :)
 
