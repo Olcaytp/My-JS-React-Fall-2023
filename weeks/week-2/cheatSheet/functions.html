@@ -1,0 +1,281 @@
+- What is a function declaration in JavaScript?
+    
+    A function declaration in JavaScript is a way to define a named function using the **`function`** keyword, followed by the function name, parentheses for parameters (if any), and curly braces to enclose the function body.
+    
+    ```jsx
+    // Example 
+    function greet(name) {
+      console.log("Hello, " + name + "!")
+    }
+    
+    greet("John") // Output: Hello, John!
+    ```
+    
+- How do I call a function in JavaScript?
+    
+    To call a function in JavaScript, you simply use the function name followed by parentheses. If the function has parameters, you can pass the values inside the parentheses.
+    
+    ```jsx
+    // Example 
+    function greet(name) {
+      console.log("Hello, " + name + "!")
+    }
+    
+    greet("Alice")  // This is how to declare a function 
+    ```
+    
+- Can a function in JavaScript return a value?
+    
+    Yes, a function in JavaScript can return a value using the **`return`** statement. The **`return`** statement allows the function to send a value back to the code that called it.
+    // Example
+function add(a, b) {
+  return a + b
+}
+
+let result = add(3, 5)
+console.log(result) // Output: 8
+
+- What is the purpose of parameters in a function?
+    
+    Parameters in a function act as placeholders for values that will be passed into the function when it is called. They allow functions to accept input and perform operations on it.
+    
+    ```jsx
+    // Example
+    // Here the parameters are defined within the parenthesis of the function with the parameters of a and b
+    function multiply(a, b) {
+      return a * b
+    }
+    
+    let product = multiply(4, 6)
+    console.log(product) // Output: 24
+    ```
+    
+- How do I pass parameters to a JavaScript function?
+    
+    You can pass parameters to a JavaScript function by specifying the values inside the parentheses when calling the function. These values will be assigned to the corresponding parameters defined in the function declaration
+    
+    ```jsx
+    // Example 
+    function greet(name) {
+      console.log("Hello, " + name + "!")
+    }
+    
+    greet("Alice") // Output: Hello, Alice!
+    ```
+    
+- What are arguments in JavaScript?
+    
+    Arguments in JavaScript are the actual values passed into a function when it is invoked. They are the values assigned to the corresponding parameters in the function definition.
+    
+    ```jsx
+    // Example 
+    // The parameter with the name of "name" is defined between parenthesis
+    function greet(name) {
+      console.log("Hello, " + name + "!")
+    }
+    
+    greet("Alice") // The string value is the "argument" in this example
+    ```
+    
+- How are parameters and arguments related in JavaScript functions?
+    
+    Parameters and arguments are related in JavaScript functions by their positional correspondence. When a function is called, the arguments are assigned to the parameters based on their order.
+    
+- Why are they called parameters and arguments?
+    
+    Parameters and arguments are commonly referred to by these names due to their respective roles in a function. Parameters are variables defined in the function's declaration or expression, acting as placeholders for the values that will be passed as arguments. Arguments, on the other hand, are the actual values passed into the function when it is called, providing the concrete data for the function to operate on. The terms "parameters" and "arguments" have been established in programming terminology to differentiate between the variables defined in the function and the actual values supplied to the function.
+    
+- What is a function expression in JavaScript?
+    
+    A function expression in JavaScript is another way to define a function. It involves assigning a function to a variable, which can then be used to invoke the function. Function expressions are often used for anonymous functions or when assigning functions as values to variables.
+    // Example
+let greet = function(name) {
+  console.log("Hello, " + name + "!")
+}
+
+greet("Bob") // Output: Hello, Bob!
+
+- What is an anonymous function?
+    
+    An anonymous function is a function that does not have a name associated with it. It can be defined using a function expression without specifying a function name. Anonymous functions are commonly used as callbacks or when the function is only needed at a specific location in the code.
+    
+    ```jsx
+    // Example 
+    setTimeout(function() {
+      console.log("This is an anonymous function.")
+    }, 1000)
+    ```
+    
+- What is the difference between function declarations and function expressions?
+    
+    Function declarations are hoisted in JavaScript, meaning they can be called before they are declared in the code. Function expressions, on the other hand, are not hoisted and can only be called after they have been assigned to a variable.
+    
+    ```jsx
+    // Example 
+    sayHello() // Output: Hello
+    
+    function sayHello() {
+      console.log("Hello")
+    }
+    
+    sayGoodbye() // Error: sayGoodbye is not a function
+    
+    let sayGoodbye = function() {
+      console.log("Goodbye")
+    }
+    ```
+    
+- Can I use a function as a variable in JavaScript?
+    
+    Yes, functions are also a form of data type in JavaScript, which means they can be treated like any other value. You can assign a function to a variable, pass it as an argument, or return it from another function.
+    
+    ```jsx
+    // Example 
+    let multiply = function(a, b) {
+      return a * b
+    };
+    
+    let result = multiply(4, 5)
+    console.log(result) // Output: 20
+    ```
+    
+- What is an arrow function in JavaScript?
+    
+    An arrow function is a concise syntax for defining functions in JavaScript. It uses the **`=>`** (arrow) syntax and does not have its own **`this`** context, inheriting it from the surrounding scope. 
+    
+    ```jsx
+    // Example 
+    let multiply = (a, b) => a * b
+    
+    console.log(multiply(3, 4)) // Output: 12
+    ```
+    
+- Can functions access variables defined outside of them?
+    
+    Yes, functions in JavaScript can access variables that are defined outside of them. This is possible due to the concept of lexical scoping, where functions have access to variables in their parent scope.
+
+    // Example
+let greeting = "Hello"
+
+function sayGreeting() {
+  console.log(greeting)
+}
+
+sayGreeting() // Output: Hello
+
+- What happens if a function and an outer variable have the same name?
+    
+    If a function and an outer variable have the same name, the function will have access to the variable within its scope. The function will prioritise its own scope over the outer variable.
+    
+- Can functions modify variables defined outside of them?
+    
+    Yes, functions can modify variables defined outside of them if those variables are mutable (such as objects or arrays). However, if the variables are primitive types (like strings or numbers), the function can't directly modify them, but it can return a new value that can be assigned to the outer variable.
+    
+    ```jsx
+    // Example 1 - Modifying a mutable variable
+    
+    let person = {
+      name: "John",
+      age: 25
+    }
+    
+    function incrementAge() {
+      person.age++
+    }
+    
+    incrementAge();
+    console.log(person.age) // Output: 26
+    
+    // Example 2 - Returning a new value for a primitive variable
+    
+    let count = 5
+    
+    function incrementCount() {
+      return count + 1
+    }
+    
+    count = incrementCount()
+    console.log(count) // Output: 6
+    
+    ```
+    
+- What happens if a function redefines a variable with the same name as an outer variable?
+    
+    If a function redefines a variable with the same name as an outer variable, it creates a new variable within its own scope, effectively shadowing the outer variable. The outer variable remains unaffected.
+    
+    ```jsx
+    // Example 
+    let message = "Hello"
+    
+    function printMessage() {
+      let message = "Hi"
+      console.log(message) // Output: Hi
+    }
+    
+    printMessage()
+    console.log(message) // Output: Hello
+    ```
+    
+- What are native methods in JavaScript?
+    
+    Native methods in JavaScript are built-in functions provided by the JavaScript language or the JavaScript runtime environment. They are pre-defined and accessible without requiring explicit definition.
+    
+- Are native methods considered functions?
+    
+    Yes, native methods are functions. They are functions that are predefined and provided by the JavaScript language or the JavaScript runtime environment. They can be called and used like any other function.
+    
+- What are some examples of native methods in JavaScript?
+    
+    Examples of native methods in JavaScript include:
+    // Examples 
+
+// Print a message to the console
+console.log("Hello, world!")
+
+// Display an alert dialog box with a message
+alert("This is an alert!")
+
+// Display a confirmation dialog box with OK/Cancel buttons and retrieve the result
+let result = confirm("Are you sure?")
+if (result) {
+  console.log("User clicked OK")
+} else {
+  console.log("User clicked Cancel")
+}
+
+// Convert a string to an integer
+let number = parseInt("42")
+console.log(number) // Output: 42
+
+// Convert a string to a floating-point number
+let number = parseFloat("3.14")
+console.log(number) // Output: 3.14
+
+// Convert a value to a string
+let num = 42
+let str = num.toString()
+console.log(str) // Output: "42"
+
+// Convert a string to uppercase
+let message = "Hello, world!"
+let upperCaseMessage = message.toUpperCase()
+console.log(upperCaseMessage) // Output: "HELLO, WORLD!"
+
+// Convert a string to lowercase
+let message = "Hello, world!"
+let lowerCaseMessage = message.toLowerCase()
+console.log(lowerCaseMessage) // Output: "hello, world!"
+
+// Get the length of a string
+let message = "Hello"
+let length = message.length
+console.log(length) // Output: 5
+
+// Get the number of elements in an array
+let numbers = [1, 2, 3, 4, 5]
+let count = numbers.length
+console.log(count) // Output: 5
+
+// Generate a random number between 0 and 1
+let random = Math.random()
+console.log(random) // Output: Random decimal value between 0 and 1
