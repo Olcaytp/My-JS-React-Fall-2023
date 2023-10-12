@@ -1,0 +1,173 @@
+# Promises
+
+<aside>
+💡 **Promises** are a feature in JavaScript that helps us handle tasks that take some time to complete, like fetching data 
+from a server. They are like a special container that holds the result of an operation that will happen in the future.
+
+We use promises in JavaScript to make our code easier to read and manage when dealing with things that happen asynchronously. 
+Promises allow us to write cleaner code by providing a structured way to handle success or failure when performing tasks like 
+loading data or making network requests.
+
+Promises were invented to solve the problem of managing and organizing complex asynchronous operations in JavaScript. 
+They make it easier for developers to handle asynchronous tasks without getting lost in a confusing mess of callbacks, 
+improving code readability and making it less prone to errors.
+</aside>
+
+<aside>
+    👨‍💻 **Asynchronous Operations in JavaScript**
+    
+    Asynchronous operations in programming refer to tasks or actions that do not happen immediately or in a sequential order. 
+    Instead, they occur independently and don't block the execution of the program.
+    
+    In JavaScript, asynchronous operations are commonly encountered when dealing with tasks that involve waiting for external 
+    resources or events. This can include making network requests to fetch data from an API, reading or writing files, or 
+    waiting for user input. Rather than pausing the entire program until the operation is complete, JavaScript allows these 
+    operations to run in the background while other parts of the program continue to execute.
+    
+    JavaScript provides various techniques like callbacks, Promises, and async/await to handle asynchronous operations. 
+    These mechanisms help ensure that the program can continue executing other tasks while waiting for the asynchronous 
+    operation to finish, improving application efficiency and responsiveness.
+    
+    </aside>
+
+    - What is a Promise in JavaScript?
+    
+    A Promise is an object that represents the eventual completion or failure of an asynchronous operation and its resulting 
+    value.
+    
+- How can you handle the result of a Promise?
+    
+    You can handle the result of a Promise using the **`then()`** method, which takes two callbacks as arguments: one for the 
+    success case and one for the failure case.
+    
+- Can you chain multiple asynchronous operations using Promises?
+    
+    Promises allow you to chain multiple asynchronous operations using the **`then()`** method. Each **`then()`** call returns 
+    a new Promise, which allows for a sequential execution flow.
+    
+- How can you handle errors in Promises?
+    
+    You can handle errors in Promises using the **`catch()`** method. It catches any errors that occur in the Promise chain.
+    
+- How do promises and the fetch API are related within JavaScript?
+    
+    Promises and the Fetch API are closely related in JavaScript. The Fetch API is built upon Promises and utilizes them for 
+    handling asynchronous operations and managing the response from a network request.
+    
+    When you make a request using the Fetch API, it returns a Promise. This Promise represents the eventual completion 
+    (or failure) of the asynchronous operation. You can then use the Promise's **`.then()`** method to handle the successful 
+    response and process the returned data. Additionally, the Promise's **`.catch()`** method allows you to handle any errors 
+    that occur during the request.
+    
+    Promises in this context enable a more structured and readable approach to handling asynchronous code. By using Promises 
+    with the Fetch API, you can chain multiple asynchronous operations, handle errors more effectively, and write code that is 
+    easier to understand and maintain.
+
+    - What types of data can I request using the fetch API?
+    
+    Here are some common types of data that you can request using the Fetch API:
+    
+    - Text:
+        - You can request plain text data from a server, such as retrieving a text file or fetching textual content.
+    - JSON:
+        - The Fetch API is commonly used to request JSON (JavaScript Object Notation) data. JSON is a lightweight data 
+        interchange format widely used for transmitting structured data between a server and a web application.
+    - HTML:
+        - You can use the Fetch API to request HTML documents, which allows you to fetch and display web pages or specific 
+        sections of a web page.
+- How can you make an API request using JavaScript?
+    
+    You can make an API request using JavaScript by using the **`fetch()`** function in conjunction with the promise object.
+     Here's an example using the GET method. It is important to note that whenever you work with a **GET** http request, you 
+     do **NOT to specify the header type on your fetch request.**
+
+     - How can you send data to an API using JavaScript?
+    
+    To send data to an API using JavaScript, you can use the **`fetch()`** function with the appropriate HTTP method 
+    (e.g., POST, PUT, DELETE) and include the data in the request body. Here's an example using the POST method:
+    
+    ```jsx
+    // Sending data to an API using fetch
+    fetch('https://api.example.com/data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: 'John', age: 30 })
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Process the API response data
+        console.log(data)
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the API request
+        console.error('Error:', error)
+      })
+    ```
+    
+    Breakdown 
+    
+    - The **`fetch`** function is called with two arguments:
+        - The first argument is the URL **`'https://api.example.com/data'`**, which is the endpoint where the data will be sent.
+        - The second argument is an object containing additional information for the request.
+    - Inside the second argument object:
+        - The **`method`** property is set to **`'POST'`**, indicating that the request is a POST request.
+        - The **`headers`** property is an object that specifies the headers for the request. In this case, it sets the 
+        **`'Content-Type'`** header to **`'application/json'`**, indicating that the request payload will be in JSON format.
+        - The **`body`** property contains the actual data to be sent to the API. In this example, it uses **`JSON.stringify`** 
+        to convert an object **`{ name: 'John', age: 30 }`** into a JSON string.
+    - After the **`fetch`** function is called, it returns a Promise that resolves to the server's response. The code chains 
+    two **`then`** methods to handle the response.
+    - The first **`then`** method takes the **`response`** as an argument and calls the **`json`** method on it. This converts 
+    the response into a JSON object.
+    - The second **`then`** method takes the **`data`** (the converted JSON response) as an argument. Inside this method, you 
+    can process the API response data. In this example, it logs the **`data`** to the console using **`console.log`**.
+    - If there is an error during the API request or any of the previous steps, the code uses the **`catch`** method to handle 
+    the error. The **`error`** object is passed as an argument to the **`catch`** method, and it logs the error message to the 
+    console using **`console.error`**.
+    - The comments in the code provide explanatory notes about each section, describing what is happening or what the purpose 
+    of that section is.
+
+    - What does it mean to "query" data when working with APIs?
+    
+    Querying data when working with APIs means requesting specific information or resources from an API by specifying parameters
+    or conditions that define the desired data set.
+    
+- How do query parameters work in API requests?
+    
+    Query parameters are appended to the URL in API requests, allowing developers to provide additional information to the 
+    API server. These parameters can include filters, sorting instructions, search terms, pagination details, or any other 
+    criteria specific to the API's functionality.
+    
+    Let's say we have an API that provides a list of books. We want to retrieve books published after a certain year and sort 
+    them by their title in ascending order. We can achieve this by including query parameters in the API request URL.
+    
+    Example API request with query parameters:
+    GET /api/books?publishedYear=2020&sort=title_asc
+
+    In this example, the query parameters are appended to the URL after the **`?`** symbol. The **`publishedYear`** 
+    parameter specifies the condition to filter the books, indicating that we want books published after the year 2020. 
+    The **`sort`** parameter instructs the API to sort the books by their title in ascending order.
+
+The API server processes these query parameters and returns the appropriate response, which may include a list of books 
+published after 2020 and sorted by title.
+
+- What are the advantages of using Promises over callbacks in JavaScript?
+    
+    Promises provide several advantages over callbacks. They offer better code readability and maintainability by allowing a 
+    more linear and sequential flow of asynchronous operations. Promises also simplify error handling with built-in mechanisms, 
+    such as the ability to catch errors using the **`.catch()`** method.
+    
+- How do Promises improve error handling compared to callbacks?
+    
+    Promises have built-in error handling capabilities, making it easier to handle and propagate errors. Unlike callbacks, 
+    where error handling needs to be explicitly implemented in each callback function, Promises allow for centralised error 
+    handling using the **`.catch()`** method. This results in cleaner and more organised code.
+    
+- What is the concept of "callback hell," and how do Promises alleviate this issue?
+    
+    "Callback hell" refers to the situation where multiple nested callbacks are used, leading to code that is difficult to 
+    read and maintain. Promises address this issue by providing a more structured and readable approach to handling asynchronous 
+    operations. Promises allow for chaining multiple asynchronous operations using the **`.then()`** method, resulting in code 
+    that is more concise and easier to follow.

@@ -80,11 +80,11 @@ console.log("Traversing the DOM");
 const parentElement = byId.parentNode;
 console.log(parentElement);
 
-const firstChild = parentElement.firstChild;
-console.log(firstChild);
+const firstChild = parentElement.firstElementChild;
+console.log("first child", firstChild);
 
-const nextSibling = byId.nextSibling;
-console.log(nextSibling);
+const nextSibling = byId.nextElementSibling;
+console.log("next sibling", nextSibling);
 // -----
 // -----
 // -----
@@ -95,15 +95,6 @@ console.log(nextSibling);
 
 const newDiv = document.createElement("div");
 parentElement.appendChild(newDiv);
-newDiv.innerText = "This is a dynamically added divs InnerText";
-console.log("line 99 => newDiv: ");
-console.log(newDiv);
-
-const newDiv2 = document.createElement("div");
-parentElement.appendChild(newDiv2);
-newDiv2.innerText = "This is a dynamically added divs InnerText";
-console.log("line 99 => newDiv: ");
-console.log(newDiv2);
 
 
 // add new item to a list

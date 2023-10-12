@@ -76,7 +76,7 @@ let tellMeYourAge = () => {
     console.log(`Sit back and relax!`);
   }
 };
-//tellMeYourAge();
+// tellMeYourAge();
 
 console.log("---- Version 02");
 console.log("Using switch");
