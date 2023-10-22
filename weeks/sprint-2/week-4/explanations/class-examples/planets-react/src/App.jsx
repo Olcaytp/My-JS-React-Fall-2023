@@ -4,6 +4,10 @@ import data from "./data.json";
 
 const App = () => {
   const planets = data.planets;
+  console.log(planets.length);
+  console.log(planets.map((planet) => planet.name));
+  console.log(planets.map((moonCount) => moonCount.moons));
+  console.log(planets.map((atmosphere) => atmosphere.atmosphere));
   /* NOT DESTRUCTURED */
   /* const renderPlanets = () => planets.map((planet) => {
       return <Planet
