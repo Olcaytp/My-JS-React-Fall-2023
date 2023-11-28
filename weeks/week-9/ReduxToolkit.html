@@ -1,0 +1,67 @@
+- What is the Redux Flow?
+    
+    Redux follows what we can define a "one-way data flow":
+
+    We have the *actions* that are *dispatched* to update the state and carry the payload, the *reducers* that listen to the actions and update the state in the store, and the *selectors* that take whatever data we need from the state to be rendered in our components
+
+- What are Actions?
+    
+    Actions are plain JavaScript objects that describe an event or intention to change the state. They are the only source of information for the store. 
+    
+- What is the structure of an Action?
+    
+    An action typically has a **`type`** property, indicating the type of action being performed. Additional properties, known as `**payload**`, can be included to carry information relevant to the action.
+    
+- What are Reducers?
+    
+    Reducers are pure functions responsible for specifying how the application's state changes in response to actions. They take the current state and an action as arguments and return the new state. 
+    
+- What is the Store?
+    
+    The store is a central hub that holds the state of your entire application. It is an object that brings together the state, actions, and reducers.
+    
+- What is a Slice?
+    
+    A"slice" refers to a portion of your Redux state and the corresponding set of actions and reducers that operate on that portion. Slices are a way to organize your Redux code in a modular and logical manner, making it easier to manage and maintain your application's state.
+
+    # Immutability
+
+💡 "Mutable" means "changeable". If something is "immutable", it can never be changed.
+
+JavaScript objects and arrays are all mutable by default. If I create an object, I can change the contents of its fields. In order to update values immutably, your code must make copies of existing data, and then modify the copies.
+
+Immutable state ensures that you don't directly modify the existing state. Instead, you create a new copy of the state object, modify the copy, and then set the new state.
+
+Immutability can bring increased performance to your app, and leads to simpler programming and debugging, as data that never changes is easier to reason about than data that is free to be changed arbitrarily throughout your app.
+
+# Intro to Redux Toolkit
+
+[Writing Reducers with Immer | Redux Toolkit](https://redux-toolkit.js.org/usage/immer-reducers)
+
+
+💡 Redux Toolkit aims to streamline the development process, improve code organization, and make it more accessible for developers to manage the state in our React applications. Redux Toolkit was created to address some common pain points and boilerplate code associated with using Redux in React applications. Let’s take a look how!
+
+
+    ❗ **Disclaimer**
+    
+    Please note that in this example the JSX files are using the `.js` extension. Since we are currently using Vite, which enforces a specific naming convention, you should continue using the `.jsx` extension and name your file, for example, `App.jsx`.
+    
+    Additionally, starting from the release 17 of React, you no longer need to `import React from "react"` in every component.
+    
+
+## Cheat sheet companion
+
+- What does `configureStore` do?
+    
+    The standard method for creating a Redux store is `configureStore`, from Redux Toolkit. Not only it creates a Redux store, but also automatically configures the Redux DevTools extension so that you can inspect the store while developing.
+    
+- What does `combineReducers` do?
+    
+    It is a function used to combine multiple reducers into a single one that can be passed to the Redux store. This function is particularly helpful when you have different slices of state managed by separate reducer functions.
+    
+    In a larger Redux application, it's common to split the state and corresponding reducer logic into separate parts, often referred to as "slices."
+    
+- What does `createSlice` do?
+It’s a function that creates a slice (a portion of your Redux state). It accepts an initial state, an object of reducer functions, and a "slice name". It automatically generates action creators and action types corresponding to the reducers and state.
+    
+    `createSlice` is a convenient utility provided by Redux Toolkit to streamline the process of defining reducers and actions in a Redux application, reducing boilerplate and making code more concise and readable
