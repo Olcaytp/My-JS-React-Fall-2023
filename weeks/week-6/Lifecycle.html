@@ -1,0 +1,137 @@
+- What is the React component lifecycle?
+    
+    The React component lifecycle refers to the various stages that a React component goes through during its existence. It can be divided into three main phases: Mounting, Updating, and Unmounting.
+    
+    - **Mounting**: This phase occurs when a new component is being created and added to the DOM.
+    - **Updating**: This phase occurs when a component's state or props change.
+    - **Unmounting**: This phase occurs when a component is being removed from the DOM.
+- How can components handle lifecycle functionality in React?
+    
+    Functional components can use the **`useEffect`** hook to handle lifecycle behavior, allowing them to perform side effects after rendering.
+    
+- How do you simulate `componentDidMount` with `useEffect` and ensure it runs only once to avoid unnecessary re-renders?
+    
+    To simulate **`componentDidMount`** in a functional component using **`useEffect`**, you can pass an empty dependency array (**`[]`**) as the second argument to **`useEffect`**. This ensures that the effect is executed only after the initial render and not on subsequent re-renders, effectively replicating the behaviour of **`componentDidMount`**:
+    // Example 
+    import { useEffect } from 'react'
+    
+    const ExampleComponent = () => {
+      useEffect(() => {
+        // Code to run after the component is mounted.
+        // This effect will run only once after the initial render.
+      }, [])
+      
+      return (
+        // Component's UI rendering.
+      )
+    }
+    - How can you manage `componentDidUpdate` behaviour using `useEffect`?
+    
+    By specifying a dependency array in **`useEffect`**, you can control when it's executed based on certain state or prop changes:
+    // Example 
+import { useEffect, useState } from 'react'
+
+const ExampleComponent = () => {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    // Code to run when 'count' changes.
+    console.log(`Count changed: ${count}`)
+  }, [count])
+  
+  return (
+    // Component's UI rendering.
+  )
+}
+
+- What is the equivalent of `componentWillUnmount` behaviour using `useEffect`?
+    
+    To clean up resources before unmounting, return a cleanup function from **`useEffect`**:
+    // Example 
+    import { useEffect } from 'react'
+    
+    const ExampleComponent = () => {
+      useEffect(() => {
+        // Code to run after the component is mounted.
+    
+        return () => {
+          // Cleanup code to run before the component is unmounted.
+        }
+      }, [])
+      
+      return (
+        // Component's UI rendering.
+      )
+    }
+
+    - How does `useEffect` help prevent memory leaks in components?
+    
+    The cleanup function returned by **`useEffect`** ensures that resources like subscriptions or event listeners are properly cleaned up when the component is unmounted.
+    
+
+- How can you conditionally run `useEffect` in a functional component?
+    
+    You can conditionally run **`useEffect`** in a functional component by providing a condition as the second argument to the hook. When the condition evaluates to **`true`**, the effect will be executed. If the condition is **`false`**, the effect will be skipped.
+    // Example 
+    import { useEffect, useState } from 'react'
+    
+    const ExampleComponent = () => {
+      const [isDataLoaded, setDataLoaded] = useState(false)
+    
+      useEffect(() => {
+        if (isDataLoaded) {
+          // Code to run when 'isDataLoaded' is true.
+          console.log('Data has been loaded.')
+        }
+      }, [isDataLoaded])
+    
+      // Function to load data.
+      const loadData = () => {
+        // Simulating data loading...
+        setTimeout(() => {
+          setDataLoaded(true);
+        }, 2000)
+      }
+    
+      return (
+        <div>
+          <button onClick={loadData}>Load Data</button>
+        </div>
+      )
+    }
+
+    In this example, the **`useEffect`** will only execute when **`isDataLoaded`** is **`true`**. Initially, the state **`isDataLoaded`** is set to **`false`**, so the effect won't run. When the "Load Data" button is clicked, the **`loadData`** function is called, and after a delay of 2 seconds, it sets **`isDataLoaded`** to **`true`**. This change in the state triggers the **`useEffect`**, and the code inside it will run, displaying "Data has been loaded." in the console.
+
+    By using a condition within **`useEffect`**, you can control when the effect should run based on changes in state, props, or any other relevant conditions in your functional component.
+
+    - How can you prevent `useEffect` from running on every render?
+    
+    To prevent **`useEffect`** from running on every render, you can pass an empty dependency array (**`[]`**) as the second argument. This will cause the effect to run only once after the initial render, just like **`componentDidMount`**.
+    
+- When should you provide dependencies in the `useEffect` dependency array?
+    
+    You should provide dependencies in the **`useEffect`** dependency array when your effect relies on specific values, such as state variables or props, and you want the effect to be re-executed whenever those values change.
+    
+- What happens if you pass an array with no elements (e.g., `[]`) as the dependency array in `useEffect`?
+    
+    Passing an empty array (**`[ ]`**) as the dependency array in **`useEffect`** means that the effect depends on nothing. It will run only once, after the initial render, and will not re-run on subsequent renders, regardless of changes in state or props.
+
+    - Who can use Postman?
+    
+    Postman is designed for developers, testers, and API providers who work with APIs in their software projects.
+    
+- What does Postman allow users to do with APIs?
+    
+    Postman allows users to create, manage, and execute API requests using various HTTP methods like GET, POST, PUT, and DELETE.
+    
+- Can Postman simulate API behaviour during development?
+    
+    Yes, Postman allows users to create mock servers that simulate API behavior, enabling frontend developers to work independently of the backend development stage.
+    
+- Can Postman handle different types of authentication methods for APIs?
+    
+    Yes, Postman supports various authentication methods like OAuth, API keys, Basic Auth, and more, making it easier to work with secure APIs.
+    
+- Is there a cloud-based version of Postman available?
+    
+    Apart from the desktop application, Postman also offers a cloud-based version, enabling users to access their collections and work from anywhere.

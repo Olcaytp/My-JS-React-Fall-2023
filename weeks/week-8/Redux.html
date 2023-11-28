@@ -1,0 +1,42 @@
+- What is global state management?
+    
+    Global state management is a system used to control and organize data that changes in our app. Instead of passing information between components using props, which can be tedious and error-prone, especially in larger apps, global state management offers a centralized way to handle data, ensuring smoother data flow and better organization.
+    
+- Why might passing information between components using props become problematic?
+    
+    Passing information between components using props can become tedious, especially when dealing with larger component trees. It can also lead to errors, as data needs to be passed down multiple levels, which is often referred to as "prop drilling.”
+    
+- How does global state management benefit larger applications?
+    
+    Global state management makes data flow smoother, allows for easier component reusability, and simplifies interactions in larger applications. It provides a clear and predictable structure, making the app more maintainable and scalable.
+    
+- Why is global state management preferred over prop drilling in complex applications?
+    
+    In complex applications with deep component hierarchies, prop drilling can become cumbersome and error-prone. Global state management offers a centralized solution, eliminating the need to pass data through multiple component levels and ensuring a more efficient and error-free data flow.
+
+
+        ❗ **Disclaimer**
+        
+        Please note that in this example the JSX files are using the `.js` extension. Since we are currently using Vite, which enforces a specific naming convention, you should continue using the `.jsx` extension and name your file, for example, `App.jsx`.
+        
+        Additionally, starting from the release 17 of React, you no longer need to `import React from "react"` in every component.
+        
+        - What is React Redux?
+    
+        React Redux is a state management library for React applications. Redux is a predictable state container for JavaScript apps. When used together, they help manage the global state of a React application in a more organized and scalable way.
+        
+    - How does the Redux Library help in managing global state?
+        
+        Redux allows you to store all the states in a central **store**, instead of scattering states across many components. This makes it easier to understand, track, and manage the application state. Many large companies use Redux to manage the state of their application.
+        
+    - How does Redux work?
+        
+        To make sure things stay organized, you have a set of rules (actions and reducers). Actions are like little notes that say what happened (e.g., "user clicked add to cart"). Reducers are like instructions on how to update the global state based on those notes.
+        
+        So, React Redux is like having a super organized way of handling and sharing information in your app. It keeps everything in check and makes sure that your different components are always on the same page!
+        
+    - When do you need Redux?
+        
+        Redux is particularly useful for managing app state in larger and more complex applications. It helps with complex state management, shared state between components, predictable state changes and debugging. In simpler application, React's built-in state management useState hook might be sufficient. It's always a trade-off, and the choice depends on the specific needs and complexity of your application.
+
+        
